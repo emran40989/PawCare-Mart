@@ -24,7 +24,7 @@ const Profile = () => {
         displayName: name,
         photoURL: photoUrl,
       })
-        .then((r) => {
+        .then(() => {
           setUser({ ...user, displayName: name, photoURL: photoUrl });
           console.log("Profile updated successfully");
         })

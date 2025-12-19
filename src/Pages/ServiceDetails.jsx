@@ -22,7 +22,7 @@ const ServiceDetails = () => {
       
 
     return (
-        <div className="flex flex-col items-center justify-center px-[145px]">
+        <div className="flex flex-col items-center justify-center w-1/2 mx-auto my-8 p-4 border border-gray-300 rounded-lg shadow-md bg-white">
             <img src={findResult?.image} className="" />
         </div>
     );

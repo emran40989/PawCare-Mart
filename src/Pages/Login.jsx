@@ -1,12 +1,17 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
-import React, { useContext } from "react";
-import { Link } from "react-router";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
 import { auth } from "../Firebase/firebase.config";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
 
   const {setUser, handleGoogleSignIn} = useContext(AuthContext)
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  console.log(location);
+  
 
   const handleSubmit = (e)=>{
     e.preventDefault();
@@ -17,6 +22,7 @@ const Login = () => {
     .then((userCredential) =>{
       const user = userCredential.user;
       setUser(user);
+      navigate(location.state || '/');
 
     })
     .catch((error) => {
@@ -29,10 +35,16 @@ const Login = () => {
     .then((result) => {
       const user = result.user;
       setUser(user);
+      navigate(location.state || '/');
     })
     .catch((error) => {
       console.log(error);      
     });
+  }
+
+  const handleForget = () => {
+    navigate(`/forget/${email}`);
+    
   }
   
 
@@ -45,6 +57,7 @@ const Login = () => {
               <fieldset className="fieldset">
                 <label className="label text-sm font-semibold">Email : </label>
                 <input
+                  onChange={(e) => setEmail(e.target.value)}
                   name="email"
                   type="email"
                   className="input"
@@ -62,9 +75,9 @@ const Login = () => {
                   required
                 />
                 <div>
-                  <Link to="/forgot-password" className="link link-hover">
+                  <button onClick={handleForget} className="link link-hover">
                     Forgot password?
-                  </Link>
+                  </button>
                 </div>
                 <button className="btn btn-neutral mt-4">Login</button>
                 {/* Google */}

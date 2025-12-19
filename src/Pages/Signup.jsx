@@ -1,11 +1,14 @@
 import React, { useContext } from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../Firebase/firebase.config";
 
 const Signup = () => {
   const { registerwithEmailPassword, setUser, handleGoogleSignIn } = useContext(AuthContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handlesubmit = (e) => {
     e.preventDefault();
@@ -14,7 +17,16 @@ const Signup = () => {
     const name = e.target.name.value;
     const photoUrl = e.target.photoUrl.value;
   
-    
+    const strongPasswordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
+
+
+  if (!strongPasswordRegex.test(password)) {
+    alert(
+      "Password must be in 6 digit and contain one uppercase, lowercase and number."
+    );
+    return;
+  }    
 
     registerwithEmailPassword(email, password)
     .then((userCredential) => {
@@ -24,6 +36,7 @@ const Signup = () => {
       })
         .then(() => {
           setUser(userCredential.user)
+          navigate(location.state || '/');
         })
         .catch((error) => {
           console.log(error)
@@ -38,6 +51,7 @@ const Signup = () => {
     .then((result=>{
       const user = result.user;
       setUser(user);
+      navigate(location.state || '/');
     }))
     .catch((error) => {
       console.log(error);      
@@ -61,6 +75,7 @@ const Signup = () => {
                     type="email"
                     className="input"
                     placeholder="your email adress"
+                    required
                   />
                   <label className="label text-sm font-semibold">Name : </label>
                   <input
@@ -85,7 +100,8 @@ const Signup = () => {
                     name="password"
                     type="password"
                     className="input"
-                    placeholder="Create a Strong Password"
+                    placeholder="Create a Strong Password" 
+                    required
                   />
                   <button className="btn btn-neutral mt-4">Sign Up</button>
                   {/* Google */}

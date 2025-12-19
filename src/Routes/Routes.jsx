@@ -9,6 +9,7 @@ import Services from '../Pages/Services';
 import Profile from '../Pages/Profile';
 import PrivateRoute from './PrivateRoute';
 import ServiceDetails from '../Pages/ServiceDetails';
+import ForgetPass from '../Pages/ForgetPass';
 
 
 const router = createBrowserRouter([
@@ -42,12 +43,16 @@ const router = createBrowserRouter([
             }, 
             {
                 path: '/details/:id', 
-                Component: ServiceDetails,
+                element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
             }, 
             {
                 path: '*', 
                 Component: ErrorPage,
             }, 
+            {
+                path: '/forget/:email', 
+                Component: ForgetPass,
+            }
         ]
     }
 ])
