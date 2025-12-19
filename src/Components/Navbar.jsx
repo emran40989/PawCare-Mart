@@ -25,8 +25,8 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/signup" className="text-sm font-semibold">
-          Signup
+        <NavLink to={"/profile"} className="text-sm font-semibold">
+          My Profile
         </NavLink>
       </li>
     </>

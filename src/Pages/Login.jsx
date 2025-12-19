@@ -26,10 +26,10 @@ const Login = () => {
 
   const googleSignin = () => {
     handleGoogleSignIn()
-    .then((result=>{
+    .then((result) => {
       const user = result.user;
       setUser(user);
-    }))
+    })
     .catch((error) => {
       console.log(error);      
     });
@@ -49,6 +49,7 @@ const Login = () => {
                   type="email"
                   className="input"
                   placeholder="your email adress"
+                  required
                 />
                 <label className="label  text-sm font-semibold">
                   Password :
@@ -58,6 +59,7 @@ const Login = () => {
                   type="password"
                   className="input"
                   placeholder="Write your password"
+                  required
                 />
                 <div>
                   <Link to="/forgot-password" className="link link-hover">
@@ -66,7 +68,7 @@ const Login = () => {
                 </div>
                 <button className="btn btn-neutral mt-4">Login</button>
                 {/* Google */}
-                  <button onClick={googleSignin} className="btn bg-blue-700 text-white border-[#e5e5e5]">
+                  <button type="button" onClick={googleSignin} className="btn bg-blue-700 text-white border-[#e5e5e5]">
                     <svg
                       aria-label="Google logo"
                       width="16"

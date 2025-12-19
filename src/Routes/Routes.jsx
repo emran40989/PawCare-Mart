@@ -5,7 +5,10 @@ import Home from '../Pages/Home';
 import Login from '../Pages/Login';
 import Signup from '../Pages/Signup';
 import ErrorPage from '../Pages/ErrorPage';
-import Pets from '../Pages/Pets';
+import Services from '../Pages/Services';
+import Profile from '../Pages/Profile';
+import PrivateRoute from './PrivateRoute';
+import ServiceDetails from '../Pages/ServiceDetails';
 
 
 const router = createBrowserRouter([
@@ -30,8 +33,16 @@ const router = createBrowserRouter([
                 Component: Signup,
             }, 
             {
+                path: '/profile', 
+                element: <PrivateRoute><Profile></Profile></PrivateRoute>,
+            }, 
+            {
                 path: '/pets-supplies', 
-                Component: Pets,
+                Component: Services,
+            }, 
+            {
+                path: '/details/:id', 
+                Component: ServiceDetails,
             }, 
             {
                 path: '*', 

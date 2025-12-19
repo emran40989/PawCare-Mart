@@ -1,0 +1,75 @@
+[
+  {
+    "serviceId": 1,
+    "serviceName": "Winter Coat Fitting for Dogs",
+    "providerName": "PawCare Studio",
+    "providerEmail": "info@pawcare.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Custom coat fitting and warm outfit options to keep your dog comfortable in cold weather.",
+    "image": "https://i.ibb.co.com/LdYyJzVq/imre-tomosvari-4-LK8f-KMu-Mqo-unsplash.jpg",
+    "category": "Clothing"
+  },
+  {
+    "serviceId": 2,
+    "serviceName": "Winter Grooming & Paw Treatment",
+    "providerName": "CozyPets Grooming",
+    "providerEmail": "hello@cozypets.com",
+    "price": 30,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Full grooming service using winter-safe shampoo and moisturizing paw balm.",
+    "image": "https://i.ibb.co.com/1Ysg1d5Y/alexander-andrews-Qj-Yx-SC4-XB84-unsplash.jpg",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 3,
+    "serviceName": "Heated Indoor Boarding",
+    "providerName": "WarmPaws Hotel",
+    "providerEmail": "contact@warmpaws.com",
+    "price": 40,
+    "rating": 4.7,
+    "slotsAvailable": 5,
+    "description": "Safe, heated indoor boarding to protect pets from extreme winter temperatures.",
+    "image": "https://i.ibb.co.com/1j381WJ/jonas-vincent-xul-IYVIb-YIc-unsplash.jpg",
+    "category": "Boarding"
+  },
+  {
+    "serviceId": 4,
+    "serviceName": "Winter Health Checkup",
+    "providerName": "Happy Tails Vet Care",
+    "providerEmail": "support@happytailsvet.com",
+    "price": 35,
+    "rating": 4.9,
+    "slotsAvailable": 6,
+    "description": "Seasonal health check focusing on skin, joints, and immunity during winter.",
+    "image": "https://i.ibb.co.com/67fvsV7X/karsten-winegeart-Qb7-D1xw28-Co-unsplash.jpg",
+    "category": "Healthcare"
+  },
+  {
+    "serviceId": 5,
+    "serviceName": "Pet Sweater & Blanket Set",
+    "providerName": "SnugglePets Store",
+    "providerEmail": "sales@snugglepets.com",
+    "price": 20,
+    "rating": 4.6,
+    "slotsAvailable": 8,
+    "description": "Soft sweaters and cozy blankets designed to keep pets warm indoors.",
+    "image": "https://i.ibb.co.com/HL91Wx9T/alec-favale-Ivzo69e18nk-unsplash.jpg",
+    "category": "Accessories"
+  },
+  {
+    "serviceId": 6,
+    "serviceName": "Winter Walking & Exercise Service",
+    "providerName": "Frosty Walkers",
+    "providerEmail": "info@frostywalkers.com",
+    "price": 18,
+    "rating": 4.7,
+    "slotsAvailable": 4,
+    "description": "Short, safe winter walks ensuring pets stay active without overexposure to cold.",
+    "image": "https://i.ibb.co.com/qFLQTvC7/alvan-nee-ZCHj-2l-JP00-unsplash-1.jpg",
+    "category": "Exercise"
+  }
+]
+
