@@ -29,6 +29,11 @@ const Navbar = () => {
           My Profile
         </NavLink>
       </li>
+      <li>
+        <NavLink to={"/add-service"} className="text-sm font-semibold">
+          Add Service
+        </NavLink>
+      </li>
     </>
   );
 
