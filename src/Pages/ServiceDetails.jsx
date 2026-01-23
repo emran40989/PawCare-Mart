@@ -2,29 +2,30 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 
 const ServiceDetails = () => {
-    const [services, setServices] = useState([]);
-    const [service, setService] = useState({});
-    const { id } = useParams();
-    
+    const [service, setService] = useState([]);
+    const { myId } = useParams();
+    const [loading, setLoading] = useState(true);
 
     
       useEffect(() => {
-        fetch("/services.json")
+        fetch(`http://localhost:3000/services/${myId}`)
           .then((res) => res.json())
-          .then((data) => setServices(data))
+          .then((data) => {
+            setService(data);
+            setLoading(false);
+          })
           .catch((err) => console.log(err));
-      }, []);
-
-        const findResult = services.find(service=> service.serviceId == id);
-        console.log(findResult);
-        
-
+      }, [myId]);
       
+      if (loading) {
+        return <div>Loading...</div>;
+      }
 
     return (
-        <div className="flex flex-col items-center justify-center w-1/2 mx-auto my-8 p-4 border border-gray-300 rounded-lg shadow-md bg-white">
-            <img src={findResult?.image} className="" />
-        </div>
+        <div className="flex flex-col items-center justify-center px-[145px]">
+            <img src={service?.imageUrl} alt={service?.name} />
+
+        </div>  
     );
 };
 
