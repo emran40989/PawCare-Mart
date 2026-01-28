@@ -15,17 +15,16 @@ const MyServices = () => {
   console.log(myServices);
 
   return (
-    <div>
-      My Services Page
+    <div className="container mx-auto px-4 py-8">
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead>
             <tr>
               <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
-              <th></th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -49,15 +48,12 @@ const MyServices = () => {
                   </div>
                 </td>
                 <td>
-                  Zemlak, Daniel and Leannon
-                  <br />
-                  <span className="badge badge-ghost badge-sm">
-                    Desktop Support Technician
-                  </span>
+                  {service.description}
                 </td>
-                <td>Purple</td>
-                <td>
-                  <button className="btn btn-ghost btn-xs">details</button>
+                <td>{service.price}</td>
+                <td className="flex gap-3">
+                  <button className="btn btn-error btn-xs">Delete</button>
+                  <button className="btn btn-primary btn-xs">Edit</button>
                 </td>
               </tr>
             ))}
