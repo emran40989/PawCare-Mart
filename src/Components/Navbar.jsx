@@ -34,6 +34,11 @@ const Navbar = () => {
           Add Service
         </NavLink>
       </li>
+      <li>
+        <NavLink to={"/my-services"} className="text-sm font-semibold">
+          My Services
+        </NavLink>
+      </li>
     </>
   );
 
