@@ -12,6 +12,7 @@ import ServiceDetails from '../Pages/ServiceDetails';
 import ForgetPass from '../Pages/ForgetPass';
 import AddService from '../Pages/AddService';
 import MyServices from '../Pages/MyServices';
+import UpdateService from '../Pages/UpdateService';
 
 
 const router = createBrowserRouter([
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
             {
                 path: '/my-services', 
                 element: <MyServices></MyServices>,
+            },
+            {
+                path: '/update-services/:id', 
+                element: <UpdateService></UpdateService>,
             }
         ]
     }
