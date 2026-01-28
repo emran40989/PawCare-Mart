@@ -7,11 +7,13 @@ const UpdateService = () => {
   const { user } = useContext(AuthContext);
   const {id} = useParams();
   const [service, setService] = useState();
+  const [category, setCategory] = useState(service?.category);
 
   useEffect(() => {
     axios.get(`http://localhost:3000/services/${id}`)
     .then(res => {
       setService(res.data);
+      setCategory(res.data.category);
     })
   }, [id]);
 
@@ -46,6 +48,8 @@ const UpdateService = () => {
               <label className="block text-sm font-medium mb-1">Category</label>
               <select
                 name="category"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
                 defaultValue={service?.category}
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
@@ -61,8 +65,10 @@ const UpdateService = () => {
               <label className="block text-sm font-medium mb-1">Price</label>
               <input
                 name="price"
+                
                 type="number"
                 placeholder="0"
+                defaultValue={service?.price}
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
@@ -74,6 +80,7 @@ const UpdateService = () => {
                 name="location"
                 type="text"
                 placeholder="Enter location"
+                defaultValue={service?.location}
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
@@ -87,6 +94,7 @@ const UpdateService = () => {
                 name="description"
                 rows="4"
                 placeholder="Write description..."
+                defaultValue={service?.description}
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               ></textarea>
             </div>
@@ -100,6 +108,7 @@ const UpdateService = () => {
                 name="imageUrl"
                 type="url"
                 placeholder="https://example.com/image.jpg"
+                defaultValue={service?.imageUrl}
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
@@ -111,6 +120,7 @@ const UpdateService = () => {
               </label>
               <input
                 name="pickUpDate"
+                defaultValue={service?.pickUpDate}
                 type="date"
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
@@ -133,7 +143,7 @@ const UpdateService = () => {
               type="submit"
               className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
             >
-              Submit
+              Update Service
             </button>
           </form>
         </div>
