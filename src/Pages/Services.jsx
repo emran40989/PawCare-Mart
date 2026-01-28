@@ -39,7 +39,7 @@ const Services = () => {
                   </div>
                   <div className="bg-gray-100 px-2 py-1 rounded text-sm font-semibold text-gray-800">
                     <span className="text-sm font-semibold">Price: </span>{" "}
-                    {service.price} USD/hr
+                    {service.price} Bdt
                   </div>
                 </div>
                 <Link to={`/details/${service._id}`}>

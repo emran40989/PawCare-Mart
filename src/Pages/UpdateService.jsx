@@ -5,22 +5,49 @@ import axios from "axios";
 
 const UpdateService = () => {
   const { user } = useContext(AuthContext);
-  const {id} = useParams();
+  const { id } = useParams();
   const [service, setService] = useState();
   const [category, setCategory] = useState(service?.category);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/services/${id}`)
-    .then(res => {
+    axios.get(`http://localhost:3000/services/${id}`).then((res) => {
       setService(res.data);
       setCategory(res.data.category);
-    })
+    });
   }, [id]);
 
   console.log(service);
-  
 
-  const handleUpdate = () => {};
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const category = form.category.value;
+    const price = parseInt(form.price.value);
+    const location = form.location.value;
+    const description = form.description.value;
+    const imageUrl = form.imageUrl.value;
+    const pickUpDate = form.pickUpDate.value;
+    const email = form.email.value;
+
+    const formData = {
+      name,
+      category,
+      price,
+      location,
+      description,
+      imageUrl,
+      pickUpDate,
+      email,
+      createdAt: new Date(),
+    };
+
+    console.log(formData);
+
+    axios.put(`http://localhost:3000/update/${id}`, formData).then((res) => {
+      console.log(res);
+    });
+  };
   return (
     <div>
       <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
@@ -65,7 +92,6 @@ const UpdateService = () => {
               <label className="block text-sm font-medium mb-1">Price</label>
               <input
                 name="price"
-                
                 type="number"
                 placeholder="0"
                 defaultValue={service?.price}
