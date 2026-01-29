@@ -41,6 +41,11 @@ const Navbar = () => {
               My Services
             </NavLink>
           </li>
+          <li>
+            <NavLink to={"/my-orders"} className="text-sm font-semibold">
+              My Orders
+            </NavLink>
+          </li>
         </>
       )}
     </>

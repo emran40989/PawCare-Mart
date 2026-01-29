@@ -1,0 +1,50 @@
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+
+const MyOrders = () => {
+  const [myOrders, setMyOrders] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/orders")
+      .then((res) => setMyOrders(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  console.log(myOrders);
+
+  return (
+    <div className="container mx-auto">
+      <div className="overflow-x-auto">
+        <table className="table table-md">
+          <thead>
+            <tr>
+              <th>SN</th>
+              <th>Product Name</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Date</th>
+              <th>Phone</th>
+              <th>Additional Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            {myOrders.map((order, index) => (
+              <tr key={index}>
+                <th>{index + 1}</th>
+                <td>{order.productName}</td>
+                <td>{order.quantity}</td>
+                <td>{order.price}</td>
+                <td>{order.date}</td>
+                <td>{order.phone}</td>
+                <td>{order.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
+export default MyOrders;
