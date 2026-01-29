@@ -9,8 +9,8 @@ const Navbar = () => {
   const { user } = useContext(AuthContext);
 
   const handleSignOut = () => {
-    signOut(auth)
-  }
+    signOut(auth);
+  };
 
   const links = (
     <>
@@ -24,21 +24,25 @@ const Navbar = () => {
           Pets & Supplies
         </NavLink>
       </li>
-      <li>
-        <NavLink to={"/profile"} className="text-sm font-semibold">
-          My Profile
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to={"/add-service"} className="text-sm font-semibold">
-          Add Service
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to={"/my-services"} className="text-sm font-semibold">
-          My Services
-        </NavLink>
-      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink to={"/profile"} className="text-sm font-semibold">
+              My Profile
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={"/add-service"} className="text-sm font-semibold">
+              Add Service
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={"/my-services"} className="text-sm font-semibold">
+              My Services
+            </NavLink>
+          </li>
+        </>
+      )}
     </>
   );
 
@@ -81,7 +85,10 @@ const Navbar = () => {
         </div>
         {user && (
           <div className="navbar-end">
-            <button onClick={handleSignOut} className="btn btn-outline btn-primary">
+            <button
+              onClick={handleSignOut}
+              className="btn btn-outline btn-primary"
+            >
               {" "}
               <span className="text-sm font-semibold">Logout</span>
             </button>
