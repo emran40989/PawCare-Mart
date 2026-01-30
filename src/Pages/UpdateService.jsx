@@ -10,7 +10,7 @@ const UpdateService = () => {
   const [category, setCategory] = useState(service?.category);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/services/${id}`).then((res) => {
+    axios.get(`https://pawcaremart-backend.vercel.app/services/${id}`).then((res) => {
       setService(res.data);
       setCategory(res.data.category);
     });
@@ -44,7 +44,7 @@ const UpdateService = () => {
 
     console.log(formData);
 
-    axios.put(`http://localhost:3000/update/${id}`, formData).then((res) => {
+    axios.put(`https://pawcaremart-backend.vercel.app/update/${id}`, formData).then((res) => {
       console.log(res);
     });
   };

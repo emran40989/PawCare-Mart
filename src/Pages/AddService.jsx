@@ -29,7 +29,7 @@ const AddService = () => {
             email
         }
         console.log(formData);
-        axios.post('http://localhost:3000/services', formData)
+        axios.post('https://pawcaremart-backend.vercel.app/services', formData)
         .then(res => {
           console.log(res);
         })

@@ -5,7 +5,7 @@ const PopularSkills = () => {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/services")
+    fetch("https://pawcaremart-backend.vercel.app/services")
       .then((res) => res.json())
       .then((data) => setServices(data))
       .catch((err) => console.log(err));
